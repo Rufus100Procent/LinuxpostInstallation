@@ -1,6 +1,8 @@
 # Note
-give file full permision to the system
+UbuntuPostInstallation file need sudo permision 
 
 #Terminal
 
 Sudo chmod 777 UbuntuPostInstallation
+
+./UbuntuPostInstallation
