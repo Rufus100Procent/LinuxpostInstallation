@@ -1,19 +1,19 @@
 # Ubuntu Post Installation
 # !/bin/bash 
 
-sudo apt update
-sudo apt install nala -y
+sudo apt update;
+sudo apt install nala -y;
 
 #customization
-sudo nala install gnome-shell-extension-manager -y 
-sudo nala install gnome-shell-extensions -y
-sudo nala install gnome-tweaks -y
+sudo nala install gnome-shell-extension-manager -y;
+sudo nala install gnome-shell-extensions -y;
+sudo nala install gnome-tweaks -y;
 
 
 #Installing flatbak
-sudo nala update
-sudo nala install flatpak -y
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo nala update;
+sudo nala install flatpak -y;
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo;
 
 #install snap d
 sudo apt-get install snapd -y
