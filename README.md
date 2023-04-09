@@ -2,11 +2,14 @@
 # !/bin/bash 
 
 sudo apt update;
+
 sudo apt install nala -y;
 
 #customization
 sudo nala install gnome-shell-extension-manager -y;
+
 sudo nala install gnome-shell-extensions -y;
+
 sudo nala install gnome-tweaks -y;
 
 
