@@ -57,7 +57,7 @@ sudo nala install timeshift -y
 
 # to see if your system supports virtualization: type: 
 
- agrep -c '(vmx|svm)' /proc/cpuinfo 
+ agrep -c '(vmx|svm)' /proc/cpuinfo : 
  (0 mean you pc cant support virutalization, more then 0 = it can)
  
    LC_ALL=C lscpu | grep Virtualization 
