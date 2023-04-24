@@ -18,6 +18,24 @@ sudo nala update
 sudo nala install flatpak -y
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo;
 
+
+#Install Htop, Neofetch ....
+sudo nala install htop -y
+sudo nala install neofetch -y
+sudo nala install vim -y
+sudo nala install vlc -y
+sudo apt install bashtop -y
+
+
+#install some SytemClean
+sudo nala install stacer -y
+
+#timshift/system backup
+sudo nala update
+sudo nala upgrade -y
+sudo nala install timeshift -y
+
+
 #install snap d
 sudo apt-get install snapd -y
 
@@ -29,38 +47,10 @@ flatpak install flathub com.spotify.Client -y
 sudo nala update
 flatpak install flathub com.discordapp.Discord -y
 
-#Install Htop, Neofetch ....
-sudo nala install htop -y
-sudo nala install neofetch -y
-sudo nala install vim -y
-sudo nala install vlc -y
-sudo apt install bashtop
-
-#install some SytemClean
-sudo nala install stacer -y
-
-#timshift/system backup
-sudo nala update
-sudo nala upgrade -y
-sudo nala install timeshift -y
 
 #qemu/virtualization
 sudo nala install qemu-kvm virt-manager bridge-utils -y
 
-#firefox
-sudo snap remove firefox
-
-sudo add-apt-repository ppa:mozillateam/ppa
-echo '
-Package: *
-Pin: release o=LP-PPA-mozillateam
-Pin-Priority: 1001
-' | sudo tee /etc/apt/preferences.d/mozilla-firefox
-
-echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
-
-sudo nala update
-sudo nala install firefox -y
 
 sudo apt-get install nvme-cli -y
 # //sudo nvme smart-log /dev/nvme0n1
@@ -68,6 +58,9 @@ sudo apt-get install nvme-cli -y
 # Install Intelij/vscode.deb
 flatpak install flathub com.jetbrains.IntelliJ-IDEA-Community -y
 wget https://az764295.vo.msecnd.net/stable/b7886d7461186a5eac768481578c1d7ca80e2d21/code_1.77.1-1680651665_amd64.deb
+
+#Postman
+flatpak install flathub com.getpostman.Postman
 
 # Zoom
 flatpak install flathub us.zoom.Zoom -y
@@ -93,7 +86,7 @@ sudo apt install cmake
 udo apt install build-essential libssl-dev
 
 #balenaEtcher
-wget https://github.com/balena-io/etcher/releases/download/v1.14.3/balenaEtcher-1.14.3-x64.AppImage
+#wget https://github.com/balena-io/etcher/releases/download/v1.14.3/balenaEtcher-1.14.3-x64.AppImage
 
 # installing VMware for 30 days free trail
 wget https://download3.vmware.com/software/WKST-1700-LX/VMware-Workstation-Full-17.0.0-20800274.x86_64.bundle
