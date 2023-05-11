@@ -76,6 +76,10 @@ sudo apt update
 
 sudo apt install winehq-staging
 
+#password manager
+sudo add-apt-repository ppa:phoerious/keepassxc -y
+sudo apt update
+sudo apt install keepassxc -y
 # games
 flatpak install flathub org.supertuxproject.SuperTux -y
 
