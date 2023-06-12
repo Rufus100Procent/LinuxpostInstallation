@@ -39,6 +39,9 @@ sudo nala install timeshift -y
 #install snap d
 sudo apt-get install snapd -y
 
+#Notion
+sudo snap install notion-snap-reborn -y
+
 #Install Spotify
 sudo nala update
 flatpak install flathub com.spotify.Client -y
