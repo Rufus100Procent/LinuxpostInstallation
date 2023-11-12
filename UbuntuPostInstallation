@@ -68,16 +68,6 @@ flatpak install flathub com.getpostman.Postman
 # Zoom
 flatpak install flathub us.zoom.Zoom -y
 
-# Wine install
-sudo dpkg --add-architecture i386 && sudo apt install wine
-sudo ln -s /usr/share/doc/wine/examples/wine.desktop /usr/share/applications/
-sudo mkdir -p /etc/apt/keyrings
-wget -O - https://dl.winehq.org/wine-builds/winehq.key | gpg --dearmor | sudo tee /etc/apt/keyrings/winehq-archive.key
-wget -nc https://dl.winehq.org/wine-builds/ubuntu/dists/$(lsb_release -sc)/winehq-$(lsb_release -sc).sources
-sudo mv winehq-$(lsb_release -sc).sources /etc/apt/sources.list.d/
-sudo apt update
-
-sudo apt install winehq-staging
 
 #password manager
 sudo add-apt-repository ppa:phoerious/keepassxc -y
