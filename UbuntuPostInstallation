@@ -1,65 +1,99 @@
-#!/bin/bash
+# Ubuntu Post Installation
 
-# Check for root privileges
-if [ "$EUID" -ne 0 ]; then
-  echo "Please run this script with root privileges (use sudo)."
-  exit 1
-fi
+# !/bin/bash
 
-# Define a list of packages and applications to install
-packages_to_install=(
-    wget
-    bashtop
-    htop
-    neofetch
-    vim
-    vlc
-    nvme-cli
-    net-tools
-    ssh
-    cmake
-    build-essential
-    libssl-dev
-    flatpak
-    gnome-shell-extension-manager
-    gnome-shell-extensions
-    gnome-tweaks
-    stacer
-    timeshift
-    winehq-staging
-    keepassxc
-    org.supertuxproject.SuperTux
-)
-
-# Add Flathub repository for Flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
-# Update repositories and install essential packages
 sudo apt update
-sudo apt install -y "${packages_to_install[@]}"
+sudo apt install nala -y
+sudo nala install wget -y
 
-# Install Flatpak applications
-flatpak install flathub -y com.spotify.Client com.discordapp.Discord com.jetbrains.IntelliJ-IDEA-Community com.jetbrains.IntelliJ-IDEA-Ultimate com.getpostman.Postman us.zoom.Zoom
+#customization
+sudo nala install gnome-shell-extension-manager -y
+sudo nala install gnome-shell-extensions -y
+sudo nala install gnome-tweaks -y
 
-# Install Wine
-sudo dpkg --add-architecture i386
-wget -nc https://dl.winehq.org/wine-builds/winehq.key
-sudo mv winehq.key /etc/apt/trusted.gpg.d/winehq.gpg
-sudo sh -c 'echo "deb https://dl.winehq.org/wine-builds/ubuntu/ $(lsb_release -cs) main" > /etc/apt/sources.list.d/winehq.list'
+
+#Installing flatbak
+
+sudo nala update
+sudo nala install flatpak -y
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo;
+
+
+#Install Htop, Neofetch ....
+sudo nala install htop -y
+sudo nala install neofetch -y
+sudo nala install vim -y
+sudo nala install vlc -y
+sudo apt install bashtop -y
+
+
+#install some SytemClean
+sudo nala install stacer -y
+
+#timshift/system backup
+sudo nala update
+sudo nala upgrade -y
+sudo nala install timeshift -y
+
+
+#install snap d
+sudo apt-get install snapd -y
+
+#Notion
+sudo snap install notion-snap-reborn -y
+
+#Install Spotify
+sudo nala update
+flatpak install flathub com.spotify.Client -y
+
+#Install discord
+sudo nala update
+flatpak install flathub com.discordapp.Discord -y
+
+
+#qemu/virtualization
+sudo nala install qemu-kvm virt-manager bridge-utils -y
+
+
+sudo apt-get install nvme-cli -y
+# //sudo nvme smart-log /dev/nvme0n1
+
+# Install Intelij/vscode.deb
+flatpak install flathub com.jetbrains.IntelliJ-IDEA-Community -y
+wget https://az764295.vo.msecnd.net/stable/b7886d7461186a5eac768481578c1d7ca80e2d21/code_1.77.1-1680651665_amd64.deb
+
+#Postman
+flatpak install flathub com.getpostman.Postman
+
+# Zoom
+flatpak install flathub us.zoom.Zoom -y
+
+# Wine install
+sudo dpkg --add-architecture i386 && sudo apt install wine
+sudo ln -s /usr/share/doc/wine/examples/wine.desktop /usr/share/applications/
+sudo mkdir -p /etc/apt/keyrings
+wget -O - https://dl.winehq.org/wine-builds/winehq.key | gpg --dearmor | sudo tee /etc/apt/keyrings/winehq-archive.key
+wget -nc https://dl.winehq.org/wine-builds/ubuntu/dists/$(lsb_release -sc)/winehq-$(lsb_release -sc).sources
+sudo mv winehq-$(lsb_release -sc).sources /etc/apt/sources.list.d/
 sudo apt update
-sudo apt install --install-recommends -y winehq-staging
 
-# Add repositories and install required packages
+sudo apt install winehq-staging
+
+#password manager
 sudo add-apt-repository ppa:phoerious/keepassxc -y
 sudo apt update
-sudo apt install -y keepassxc
+sudo apt install keepassxc -y
+# games
+flatpak install flathub org.supertuxproject.SuperTux -y
 
-# Download VMware for a 30-day free trial
+# optional
+sudo apt install net-tools
+sudo apt-get install ssh
+sudo apt install cmake
+udo apt install build-essential libssl-dev
+
+#balenaEtcher
+#wget https://github.com/balena-io/etcher/releases/download/v1.14.3/balenaEtcher-1.14.3-x64.AppImage
+
+# installing VMware for 30 days free trail
 wget https://download3.vmware.com/software/WKST-1700-LX/VMware-Workstation-Full-17.0.0-20800274.x86_64.bundle
-
-# Make the downloaded bundle file executable
-chmod +x VMware-Workstation-Full-17.0.0-20800274.x86_64.bundle
-
-# Run the VMware Workstation installer
-./VMware-Workstation-Full-17.0.0-20800274.x86_64.bundle
-
