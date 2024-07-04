@@ -3,37 +3,36 @@
 # !/bin/bash
 
 sudo apt update
-sudo apt install nala -y
-sudo nala install wget -y
+sudo apt install wget -y
 
 #customization
-sudo nala install gnome-shell-extension-manager -y
-sudo nala install gnome-shell-extensions -y
-sudo nala install gnome-tweaks -y
+sudo apt install gnome-shell-extension-manager -y
+sudo apt install gnome-shell-extensions -y
+sudo apt install gnome-tweaks -y
 
 
 #Installing flatbak
 
-sudo nala update
-sudo nala install flatpak -y
+sudo apt update
+sudo apt install flatpak -y
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo;
 
 
 #Install Htop, Neofetch ....
-sudo nala install htop -y
-sudo nala install neofetch -y
-sudo nala install vim -y
-sudo nala install vlc -y
+sudo apt install htop -y
+sudo apt install neofetch -y
+sudo apt install vim -y
+sudo apt install vlc -y
 sudo apt install bashtop -y
 
 
 #install some SytemClean
-sudo nala install stacer -y
+sudo apt install stacer -y
 
 #timshift/system backup
-sudo nala update
-sudo nala upgrade -y
-sudo nala install timeshift -y
+sudo apt update
+sudo apt upgrade -y
+sudo apt install timeshift -y
 
 
 #install snap d
@@ -43,16 +42,16 @@ sudo apt-get install snapd -y
 sudo snap install notion-snap-reborn -y
 
 #Install Spotify
-sudo nala update
+sudo apt update
 flatpak install flathub com.spotify.Client -y
 
 #Install discord
-sudo nala update
+sudo apt update
 flatpak install flathub com.discordapp.Discord -y
 
 
 #qemu/virtualization
-sudo nala install qemu-kvm virt-manager bridge-utils -y
+sudo apt install qemu-kvm virt-manager bridge-utils -y
 
 
 sudo apt-get install nvme-cli -y
@@ -80,7 +79,7 @@ flatpak install flathub org.supertuxproject.SuperTux -y
 sudo apt install net-tools
 sudo apt-get install ssh
 sudo apt install cmake
-udo apt install build-essential libssl-dev
+sudo apt install build-essential libssl-dev
 
 
 nautilus -q
@@ -98,4 +97,4 @@ sudo apt install nautilus-wipe -y
 #wget https://github.com/balena-io/etcher/releases/download/v1.14.3/balenaEtcher-1.14.3-x64.AppImage
 
 # installing VMware for 30 days free trail
-wget https://download3.vmware.com/software/WKST-1700-LX/VMware-Workstation-Full-17.0.0-20800274.x86_64.bundle
+# wget https://download3.vmware.com/software/WKST-1700-LX/VMware-Workstation-Full-17.0.0-20800274.x86_64.bundle
