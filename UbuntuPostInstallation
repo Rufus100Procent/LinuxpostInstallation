@@ -4,6 +4,8 @@
 
 sudo apt update
 sudo apt install wget -y
+sudo apt install wget curl unzip -y
+sudo apt install git -y
 
 #customization
 sudo apt install gnome-shell-extension-manager -y
@@ -35,12 +37,6 @@ sudo apt upgrade -y
 sudo apt install timeshift -y
 
 
-#install snap d
-sudo apt-get install snapd -y
-
-#Notion
-sudo snap install notion-snap-reborn -y
-
 #Install Spotify
 sudo apt update
 flatpak install flathub com.spotify.Client -y
@@ -49,29 +45,37 @@ flatpak install flathub com.spotify.Client -y
 sudo apt update
 flatpak install flathub com.discordapp.Discord -y
 
-
-#qemu/virtualization
-sudo apt install qemu-kvm virt-manager bridge-utils -y
-
-
 sudo apt-get install nvme-cli -y
 # //sudo nvme smart-log /dev/nvme0n1
 
 # Install Intelij/vscode.deb
-flatpak install flathub com.jetbrains.IntelliJ-IDEA-Community -y
+flatpak install flathub com.jetbrains.IntelliJ-IDEA-Ultimate -y
+
 wget https://az764295.vo.msecnd.net/stable/b7886d7461186a5eac768481578c1d7ca80e2d21/code_1.77.1-1680651665_amd64.deb
 
 #Postman
-flatpak install flathub com.getpostman.Postman
-
-# Zoom
-flatpak install flathub us.zoom.Zoom -y
+flatpak install flathub com.getpostman.Postman -y
 
 
 #password manager
 sudo add-apt-repository ppa:phoerious/keepassxc -y
 sudo apt update
 sudo apt install keepassxc -y
+
+
+# install ollama AI in local
+curl -fsSL https://ollama.com/install.sh | sh
+ollama --version
+ollama serve
+
+
+# Install Node.js and npm (latest LTS version)
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt install nodejs -y
+node -v
+npm -v
+
+
 # games
 flatpak install flathub org.supertuxproject.SuperTux -y
 
@@ -90,11 +94,8 @@ sudo apt-get update
 sudo apt-get install folder-color -y
 sudo apt install imagemagick nautilus-image-converter -y
 sudo apt install gnome-sushi -y
-sudo apt install nautilus-wipe -y
+# sudo apt install nautilus-wipe -y
 
-
-#balenaEtcher
-#wget https://github.com/balena-io/etcher/releases/download/v1.14.3/balenaEtcher-1.14.3-x64.AppImage
 
 # installing VMware for 30 days free trail
 # wget https://download3.vmware.com/software/WKST-1700-LX/VMware-Workstation-Full-17.0.0-20800274.x86_64.bundle
